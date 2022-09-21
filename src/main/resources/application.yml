@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+    url: jdbc:mysql://localhost:3306/best?characterEncoding=utf8&useSSL=true
+    hikari:
+      minimum-idle: 5
+      connection-test-query: SELECT 1 FROM DUAL
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: mysql-hikari-pool
+      max-lifetime: 60000
+      connection-timeout: 30000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+logging:
+  level:
+    web: debug
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.logic.best_2.entity
+  global-config:
+    db-config:
+      table-underline: true
